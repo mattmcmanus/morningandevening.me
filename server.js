@@ -3,7 +3,6 @@ var cluster = require('cluster')
   , fs = require('fs')
   , _ = require('underscore')
   , app = require('./app')
-  , numCPUs = require('os').cpus().length
   , peopleObject
   , workers = []
   
@@ -12,10 +11,8 @@ if (cluster.isMaster) {
   console.log(" --------------  ".blue + "Morning & Evening".rainbow + "  ---------------  ".blue);
   console.log("");
   
-  numWorkers = (numCPUs >= 2)?numCPUs:2;
-  
   // Fork workers.
-  for (var i = 0; i < numWorkers; i++) {
+  for (var i = 0; i < 4; i++) {
     workers[i] = cluster.fork()
   }
   
