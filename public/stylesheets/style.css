@@ -68,12 +68,12 @@ body {
  * Also: hot pink! (or customize the background color to match your design)
  */
 ::-moz-selection {
-  background: #fe57a1;
+  background: #900;
   color: #fff;
   text-shadow: none;
 }
 ::selection {
-  background: #fe57a1;
+  background: #900;
   color: #fff;
   text-shadow: none;
 }
@@ -467,6 +467,10 @@ small {
 cite {
   font-style: normal;
 }
+.container {
+  width: 580px;
+  margin: 0 auto;
+}
 body {
   background: #f6f6f6 url("../images/bg.png");
 }
@@ -476,9 +480,11 @@ header {
 #title {
   font-size: 20px;
   font-style: italic;
-  line-height: 20px;
+  font-weight: 400;
+  line-height: 21px;
   margin: 10px 0 2px;
   text-align: center;
+  text-shadow: -1px -1px 2px rgba(22,22,22,0.10);
 }
 #title strong {
   font-size: 36px;
@@ -486,20 +492,20 @@ header {
 }
 #title .amp {
   font-style: italic;
-  font-size: 38px;
+  font-size: 52px;
+  margin: 0 -4px 0 -2px;
+  position: relative;
+  top: 7px;
   font-weight: 400;
-  color: #666;
+  color: #333;
+  opacity: 0.5;
 }
 #title .by {
   font-size: 16px;
   font-weight: 400;
-  margin: 2px;
+  margin: 4px 0 1px;
   color: #666;
   display: block;
-}
-#content {
-  width: 580px;
-  margin: 0 auto;
 }
 #content h1,
 #content h2 {
@@ -519,8 +525,11 @@ header {
 #content h2 {
   color: #666;
 }
+#content article {
+  padding: 0 2.5em;
+}
 #content blockquote {
-  margin: 0 0 2em;
+  margin: 0 -3.5em 1em;
   padding: 1.75em 4em 2.5em;
   position: relative;
   background: url("../images/verse-top.png") no-repeat center top, url("../images/verse-top.png") no-repeat center bottom;
@@ -530,14 +539,20 @@ header {
   line-height: 34px;
   font-style: italic;
 }
-footer {
-  text-align: center;
-  margin: 2em 0 0 0;
-  padding: 1em;
-  border-top: 1px solid #ddd;
+#content blockquote small strong {
+  font-size: 1.3em;
 }
-footer a:link,
-footer a:visited {
+#content .response p {
+  text-align: justify;
+}
+footer.container {
+  text-align: center;
+  margin: 3em auto 0;
+  padding: 1em;
+  border-top: 1px solid #bbb;
+}
+footer.container a:link,
+footer.container a:visited {
   color: #600;
 }
 /* ==|== media queries ======================================================
@@ -545,7 +560,21 @@ footer a:visited {
    This example overrides the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
-@media only screen and (min-width: 35em) {
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  #content article {
+    padding: 0 1em;
+  }
+  #content article blockquote {
+    padding: 1em 0;
+    margin: 0 0 1em;
+  }
+  #content p {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.

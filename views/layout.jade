@@ -34,12 +34,18 @@ html(lang="en")
       //nav
       //  a(href="#") Select a date
     hr
-    #content(role="main")
+    #content(role="main").container
+      h1 January 1
+        small st
+      
       != body
     
-    footer
-      p Site brought to you by 
-        a(href="http://mattmcman.us") Matt McManus 
+    footer.container
+      p Made by 
+        a(href="http://mattmcman.us") Matt
+        a(href="https://twitter.com/share", class="twitter-share-button", data-via="CharlesSpurgeon") Tweet
+        script
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
     script(src="js/plugins.js")

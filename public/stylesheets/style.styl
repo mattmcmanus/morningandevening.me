@@ -42,8 +42,8 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
  * Also: hot pink! (or customize the background color to match your design)
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #900; color: #fff; text-shadow: none; }
+::selection { background: #900; color: #fff; text-shadow: none; }
 
 
 /* =============================================================================
@@ -220,6 +220,10 @@ td { vertical-align: top; }
 
 @import "typography"
 
+.container
+  width 580px
+  margin 0 auto
+
 body
   background #f6f6f6 url(../images/bg.png)
 
@@ -230,30 +234,33 @@ header
 #title
   font-size 20px
   font-style italic
-  line-height 20px
+  font-weight 400
+  line-height 21px
   margin 10px 0 2px
   text-align center
+  text-shadow -1px -1px 2px rgba(22,22,22,.1)
   strong
     font-size 36px
     font-style normal
     
   .amp
     font-style italic
-    font-size 38px
+    font-size 52px
+    margin 0 -4px 0 -2px
+    position relative
+    top 7px
     font-weight 400
-    color #666
+    color #333
+    opacity .5
   .by
     font-size 16px
     font-weight 400
-    margin 2px
+    margin 4px 0 1px
     color #666
     display block
 
 
 #content
-  width 580px
-  margin 0 auto
-
   h1, h2
     text-align center
     font-style italic
@@ -268,9 +275,10 @@ header
     
   h2
     color #666
-    
+  article
+    padding 0 2.5em
   blockquote
-    margin 0 0 2em
+    margin 0 -3.5em 1em
     padding 1.75em 4em 2.5em
     position relative
     background url(../images/verse-top.png) no-repeat center top, url(../images/verse-top.png) no-repeat center bottom
@@ -278,18 +286,20 @@ header
       font-size 28px
       line-height 34px
       font-style italic
+    small strong
+      font-size 1.3em
+  .response
+    p
+      text-align justify
 
 
-footer
+footer.container
   text-align center
-  margin 2em 0 0 0
+  margin 3em auto 0
   padding 1em
-  border-top 1px solid #ddd
+  border-top 1px solid #bbb
   a:link, a:visited
     color #600
-
-
-
 
 
 /* ==|== media queries ======================================================
@@ -298,10 +308,25 @@ footer
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+// UP TO LANDSCAPE PHONE
+@media (max-width: 480px)
+  .container
+    width 100%
+  #content
+    article
+      padding 0 1em
+      blockquote
+        padding 1em 0
+        margin 0 0 1em
+    p
+      font-size 18px
+      line-height 24px
 
+
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+//@media (max-width: 767px)
 
 
 /* ==|== non-semantic helper classes ========================================
