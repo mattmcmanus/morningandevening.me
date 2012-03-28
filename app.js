@@ -5,8 +5,20 @@
 
 var express = require('express')
   , colors = require('colors')
-  , routes = require('./routes')
-  //, content = JSON.parse(require('fs').readFileSync(__dirname+'/content.json'));
+  , moment = require('moment')
+  , jsdom = require('jsdom')
+  , html = require('fs').readFileSync(__dirname+'/morning-and-evening.html')
+  , content;
+
+jsdom.env({
+  html: html,
+  scripts: [
+    'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
+  ],
+  done: function(errors, window) {
+    content = window
+  }
+});
 
 console.log(" * Worker ".green + process.pid+ " booted".green)
   
@@ -35,7 +47,14 @@ app.configure('production', function(){
 //                        Routes
 // - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-app.get('/', routes.index);
+app.get('/', function(req, res){
+  var day = moment().format("MMMMD")
+    , hour = moment().format("H")
+    , time = (hour > 15)?'evening':'morning'
+    , current = content.$("article#"+day+"_"+time).html()
+  
+  res.render('index', { date: moment().format("MMMM Do"), time: time, current: current } )  
+});
 //app.get('/:month/:day', routes.day)
 
 //                     Helpers

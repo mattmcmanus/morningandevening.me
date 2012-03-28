@@ -1,7 +1,6 @@
 var cluster = require('cluster')
   , colors = require('colors')
   , fs = require('fs')
-  , _ = require('underscore')
   , app = require('./app')
   , peopleObject
   , workers = []

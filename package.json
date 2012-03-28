@@ -16,7 +16,8 @@
   , "stylus": ">= 0.0.1"
   , "jade": ">= 0.0.1"
   , "colors": "*"
-  , "underscore": "*"
+  , "moment": "*"
+  , "jsdom": "0.2.x"
   },
   "devDependencies": {}
 }

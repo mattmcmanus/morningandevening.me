@@ -349,7 +349,7 @@ td {
 h1,
 h2,
 blockquote p,
-blockquote small {
+blockquote cite {
   font-family: 'Sorts Mill Goudy', serif;
 }
 p {
@@ -443,7 +443,8 @@ abbr {
   border-bottom: 1px dotted #ddd;
   cursor: help;
 }
-blockquote small {
+blockquote small,
+blockquote cite {
   display: block;
   line-height: 26px;
   color: #666;
@@ -539,7 +540,7 @@ header {
   line-height: 34px;
   font-style: italic;
 }
-#content blockquote small strong {
+#content blockquote cite strong {
   font-size: 1.3em;
 }
 #content .response p {
