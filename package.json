@@ -1,12 +1,22 @@
 {
-    "name": "morningandevening.me"
-  , "version": "0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.x"
-    , "stylus": ">= 0.0.1"
-    , "jade": ">= 0.0.1"
-    , "colors": "*"
-    , "underscore": "*"
-  }
+  "author": "Matt McManus <matt@ablegray.com> (http://mattmcman.us)",
+  "name": "morningandevening.me",
+  "description": "Spurgeons Morning and Evening",
+  "version": "0.1.0",
+  "homepage": "http://morningandevening.me",
+  "repository": {
+    "type": "git",
+    "url": "root@ablegray.com:/var/git/morningandevening.me.git"
+  },
+  "engines": {
+    "node": "0.6"
+  },
+  "dependencies": {
+    "express": "2.x"
+  , "stylus": ">= 0.0.1"
+  , "jade": ">= 0.0.1"
+  , "colors": "*"
+  , "underscore": "*"
+  },
+  "devDependencies": {}
 }
