@@ -12,12 +12,13 @@
     "node": "0.6"
   },
   "dependencies": {
-    "express": "2.x"
-  , "stylus": ">= 0.0.1"
-  , "jade": ">= 0.0.1"
-  , "colors": "*"
-  , "moment": "*"
-  , "jsdom": "0.2.x"
+    "express"           : "2.x"
+  , "stylus"            : ">= 0.0.1"
+  , "jade"              : ">= 0.0.1"
+  , "colors"            : "*"
+  , "moment"            : "*"
+  , "jsdom"             : "0.2.x"
+  , "connect-gzip"      : ">= 0.0.1"
   },
   "devDependencies": {}
 }

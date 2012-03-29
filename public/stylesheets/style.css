@@ -522,44 +522,42 @@ a {
   color: #666;
   display: block;
 }
-.date {
-  text-align: center;
-}
-.date h1 {
-  display: inline-block;
-}
+.date #picker,
 .date.open #picker {
   opacity: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
 #picker {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  padding: 4px;
+  background: transparent url("../images/date-icon.png") no-repeat 0 16px;
+  padding: 4px 4px 4px 28px;
+  text-decoration: none;
+  opacity: 0.8;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  font-size: 36px;
+  color: #333;
+}
+#picker small {
   position: relative;
-  left: -10px;
-  top: -5px;
-  background: transparent url("../images/date-icon.png") no-repeat center center;
-  opacity: 0.2;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  top: -8px;
+  color: #666;
 }
 #picker:hover {
   opacity: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  color: #222;
 }
 #calendar {
-  padding: 12px;
   text-align: center;
-  background: #444;
-  -webkit-box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
-  -moz-box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
-  box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
+  background: #444 url("../images/calendar-bg.png") repeat;
+  -webkit-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
+  -moz-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
+  box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
   border-top: 1px solid #fffff6;
   border-bottom: 1px solid #fffff6;
 }
 #calendar ul {
-  margin: 5px;
+  margin: 18px;
 }
 #calendar ul li {
   display: inline-block;
@@ -583,20 +581,17 @@ a {
   opacity: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
+#calendar ul#month {
+  margin-bottom: 8px;
+}
 #calendar ul#month a {
   font-size: 22px;
 }
+#calendar ul#day {
+  margin-top: 8px;
+}
 #calendar ul#day a {
   font-size: 18px;
-}
-#content h1 {
-  font-size: 36px;
-  color: #333;
-}
-#content h1 small {
-  position: relative;
-  top: -8px;
-  color: #666;
 }
 #content h2 {
   color: #666;

@@ -6,6 +6,7 @@
 var express = require('express')
   , colors = require('colors')
   , fs = require('fs')
+  , gzip = require('connect-gzip')
   , moment = require('moment')
   , jsdom = require('jsdom')
   , content
@@ -36,7 +37,7 @@ function loadCurrent() {
 }
 
 var loadCurrentInt = setInterval( loadCurrent , 3600000) //3600000 = 1 hour
-setTimeout( loadCurrent , 1000 ) 
+setTimeout( loadCurrent , 100 ) 
 
 var app = module.exports = express.createServer();
 
@@ -44,43 +45,26 @@ var app = module.exports = express.createServer();
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+  
+  // Files
+  app.use(gzip.staticGzip(__dirname + '/public'), {maxAge: 1000 * 60 * 60 * 24 * 365})
+  app.use(gzip.gzip({ flags: '--best' }))
+  app.use(express.logger('dev'));
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+})
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+})
 
 app.configure('production', function(){
   app.use(express.errorHandler());
-});
-
-//                        Routes
-// - - - - - - - - - - - - - - - - - - - - - - - - - - -
-app.get('/', function(req, res){
-  res.render('index', { 
-      date: moment().format("MMMM Do")
-    , current: current } 
-  )  
-});
-
-//app.get('/:month/:day', function(req, res){
-//  var day = moment(req.param.month+"-"+req.param.month, ["MMMM-D", "MMM-D", "M-D"]).format("MMMMD")
-//    , current = content.$("#"+day+"_morning","#"+day+"_evening").html()
-//    
-//  res.render('index', { 
-//      date: moment(day).format("MMMM Do")
-//    , current: current } 
-//  ) 
-//})
+})
 
 //                     Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//app.helpers(require('./helpers.js').helpers);
+app.helpers(require('./helpers.js').helpers);
 app.dynamicHelpers(require('./helpers.js').dynamicHelpers)
 
 //                     Errors
@@ -97,6 +81,30 @@ NotFound.prototype.__proto__ = Error.prototype;
 //app.get('/*', function(req, res){
 //  throw new NotFound
 //})
+
+//                        Routes
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+app.get('/', function(req, res){
+  res.render('index', { 
+      date: moment().format("MMMM Do")
+    , curMonth: moment().format("MMM")
+    , curDay: moment().format("D")
+    , current: current } 
+  )  
+});
+
+app.get('/:date', function(req, res){
+  var day = moment(req.params.date).format("MMMMD")
+    , current = content.$("#"+day+"_morning,").html()
+    current += "<hr />" + content.$("#"+day+"_evening").html()
+    
+  res.render('index', { 
+      date: moment(day).format("MMMM Do")
+    , curMonth: moment(day).format("MMM")
+    , curDay: moment(day).format("D")
+    , current: current } 
+  ) 
+})
 
 app.error(function(err, req, res, next){
   console.log("ERROR")
