@@ -34,9 +34,100 @@ html(lang="en")
       //nav
       //  a(href="#") Select a date
     hr
-    #content(role="main").container
+    .date.open
+      a#picker.ir(href="#") Select a specific date
       h1= date
-      
+      #calendar
+        ul#month
+          li
+            a#jan(href="#") Jan
+          li
+            a#feb(href="#") Feb
+          li
+            a#mar.current(href="#") Mar
+          li
+            a#apr(href="#") Apr
+          li
+            a#may(href="#") May
+          li
+            a#jun(href="#") Jun
+          li
+            a#jul(href="#") Jul
+          li
+            a#aug(href="#") Aug
+          li
+            a#sep(href="#") Sep
+          li
+            a#oct(href="#") Oct
+          li
+            a#nov(href="#") Nov
+          li
+            a#dec(href="#") Dec
+        ul#day
+          li
+            a#d1(href="#") 1
+          li  
+            a#d2(href="#") 2
+          li  
+            a#d3(href="#") 3
+          li  
+            a#d4(href="#") 4
+          li  
+            a#d5(href="#") 5
+          li  
+            a#d6(href="#") 6
+          li  
+            a#d7(href="#") 7
+          li  
+            a#d8(href="#") 8
+          li  
+            a#d9(href="#") 9
+          li  
+            a#d10(href="#") 10
+          li  
+            a#d11(href="#") 11
+          li  
+            a#d12(href="#") 12
+          li  
+            a#d13(href="#") 13
+          li  
+            a#d14(href="#") 14
+          li  
+            a#d15(href="#") 15
+          li  
+            a#d16(href="#") 16
+          li  
+            a#d17(href="#") 17
+          li  
+            a#d18(href="#") 18
+          li  
+            a#d19(href="#") 19
+          li  
+            a#d20(href="#") 20
+          li  
+            a#d21(href="#") 21
+          li  
+            a#d22(href="#") 22
+          li  
+            a#d23(href="#") 23
+          li  
+            a#d24(href="#") 24
+          li  
+            a#d25(href="#") 25
+          li  
+            a#d26(href="#") 26
+          li  
+            a#d27(href="#") 27
+          li  
+            a#d28(href="#") 28
+          li  
+            a#d29.current(href="#") 29
+          li  
+            a#d30(href="#") 30
+          li  
+            a#d31(href="#") 31
+          
+    #content(role="main").container
       != body
     
     footer.container

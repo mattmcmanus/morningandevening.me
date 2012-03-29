@@ -349,7 +349,8 @@ td {
 h1,
 h2,
 blockquote p,
-blockquote cite {
+blockquote cite,
+a {
   font-family: 'Sorts Mill Goudy', serif;
 }
 p {
@@ -478,6 +479,18 @@ body {
 header {
   padding: 15px 20px 0;
 }
+h1,
+h2 {
+  text-align: center;
+  font-style: italic;
+  font-weight: 300;
+}
+a {
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
 #title {
   font-size: 20px;
   font-style: italic;
@@ -500,6 +513,7 @@ header {
   font-weight: 400;
   color: #333;
   opacity: 0.5;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
 }
 #title .by {
   font-size: 16px;
@@ -508,11 +522,72 @@ header {
   color: #666;
   display: block;
 }
-#content h1,
-#content h2 {
+.date {
   text-align: center;
-  font-style: italic;
-  font-weight: 300;
+}
+.date h1 {
+  display: inline-block;
+}
+.date.open #picker {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+#picker {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  position: relative;
+  left: -10px;
+  top: -5px;
+  background: transparent url("../images/date-icon.png") no-repeat center center;
+  opacity: 0.2;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+}
+#picker:hover {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+#calendar {
+  padding: 12px;
+  text-align: center;
+  background: #444;
+  -webkit-box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
+  -moz-box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
+  box-shadow: inset 0 0 30px rgba(10,10,10,0.80);
+  border-top: 1px solid #fffff6;
+  border-bottom: 1px solid #fffff6;
+}
+#calendar ul {
+  margin: 5px;
+}
+#calendar ul li {
+  display: inline-block;
+  list-style: none;
+}
+#calendar ul li a {
+  display: block;
+  padding: 4px 8px;
+  color: #fff;
+  opacity: 0.65;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+  text-decoration: none;
+  text-shadow: 0 3px 2px rgba(10,10,10,0.75);
+}
+#calendar ul li a.current {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  font-weight: 700;
+}
+#calendar ul li a:hover {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+#calendar ul#month a {
+  font-size: 22px;
+}
+#calendar ul#day a {
+  font-size: 18px;
 }
 #content h1 {
   font-size: 36px;
@@ -540,7 +615,8 @@ header {
   line-height: 34px;
   font-style: italic;
 }
-#content blockquote cite strong {
+#content blockquote cite .chapter,
+#content blockquote cite .verse {
   font-size: 1.3em;
 }
 #content .response p {
@@ -555,6 +631,11 @@ footer.container {
 footer.container a:link,
 footer.container a:visited {
   color: #600;
+}
+footer.container .twitter-share-button {
+  margin: 5px 20px 0;
+  position: relative;
+  top: 4px;
 }
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
@@ -583,21 +664,16 @@ footer.container a:visited {
 /* For image replacement */
 .ir {
   display: block;
-  border: 0;
-  text-indent: -999em;
+  text-indent: 100%;
+  white-space: nowrap;
   overflow: hidden;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr;
-  *line-height: 0;
 }
 .ir br {
   display: none;
 }
 /* Hide from both screenreaders and browsers: h5bp.com/u */
 .hidden {
-  display: none !important;
+  display: none;
   visibility: hidden;
 }
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
@@ -645,6 +721,8 @@ footer.container a:visited {
   * {
     background: transparent !important;
     color: #000 !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
     box-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;

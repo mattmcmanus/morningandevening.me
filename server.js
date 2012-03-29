@@ -5,27 +5,42 @@
 
 var express = require('express')
   , colors = require('colors')
+  , fs = require('fs')
   , moment = require('moment')
   , jsdom = require('jsdom')
-  , html = require('fs').readFileSync(__dirname+'/morning-and-evening.html')
-  , content;
+  , content
+  , current
+  , jquery = fs.readFileSync("./public/js/libs/jquery-1.7.1.min.js");
 
 console.log(" * Process ".green + process.pid+ " started".green)
 
 jsdom.env({
-  html: html,
-  scripts: [
-    'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
+  html: fs.readFileSync(__dirname+'/morning-and-evening.html'),
+  src: [
+    jquery
   ],
   done: function(errors, window) {
     content = window
   }
 });
-  
+
+
+function loadCurrent() {
+  var day = moment().format("MMMMD")
+    , hour = moment().format("H")
+    , time = (hour > 15)?'evening':'morning';
+    
+    current = content.$("#"+day+"_"+time).html()
+    
+    console.log(moment().format("MM-D-HH:MM:ss")+" - Reloading current data".green)
+}
+
+var loadCurrentInt = setInterval( loadCurrent , 3600000) //3600000 = 1 hour
+setTimeout( loadCurrent , 1000 ) 
+
 var app = module.exports = express.createServer();
 
 // Configuration
-
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -46,16 +61,22 @@ app.configure('production', function(){
 
 //                        Routes
 // - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 app.get('/', function(req, res){
-  var day = moment().format("MMMMD")
-    , hour = moment().format("H")
-    , time = (hour > 15)?'evening':'morning'
-    , current = content.$("article#"+day+"_"+time).html()
-  
-  res.render('index', { date: moment().format("MMMM Do"), time: time, current: current } )  
+  res.render('index', { 
+      date: moment().format("MMMM Do")
+    , current: current } 
+  )  
 });
-//app.get('/:month/:day', routes.day)
+
+//app.get('/:month/:day', function(req, res){
+//  var day = moment(req.param.month+"-"+req.param.month, ["MMMM-D", "MMM-D", "M-D"]).format("MMMMD")
+//    , current = content.$("#"+day+"_morning","#"+day+"_evening").html()
+//    
+//  res.render('index', { 
+//      date: moment(day).format("MMMM Do")
+//    , current: current } 
+//  ) 
+//})
 
 //                     Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - - - -
