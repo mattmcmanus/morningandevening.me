@@ -491,16 +491,19 @@ a {
   -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
-#title {
+#title a {
+  display: block;
+  text-decoration: none;
   font-size: 20px;
   font-style: italic;
   font-weight: 400;
-  line-height: 21px;
-  margin: 10px 0 2px;
+  line-height: 23px;
+  padding: 10px 0 2px;
   text-align: center;
   text-shadow: -1px -1px 2px rgba(22,22,22,0.10);
+  color: #333;
 }
-#title strong {
+#title a strong {
   font-size: 36px;
   font-style: normal;
 }
@@ -610,9 +613,13 @@ a {
   line-height: 34px;
   font-style: italic;
 }
+#content blockquote cite .book {
+  margin-right: 3px;
+}
 #content blockquote cite .chapter,
 #content blockquote cite .verse {
   font-size: 1.3em;
+  font-weight: 700;
 }
 #content .response p {
   text-align: justify;
@@ -642,10 +649,10 @@ footer.container .twitter-share-button {
     width: 100%;
   }
   #content article {
-    padding: 0 1em;
+    padding: 0 18px;
   }
   #content article blockquote {
-    padding: 1em 0;
+    padding: 1em 0 2em;
     margin: 0 0 1em;
   }
   #content p {
