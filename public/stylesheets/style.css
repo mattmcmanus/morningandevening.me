@@ -500,7 +500,7 @@ a {
   line-height: 23px;
   padding: 10px 0 2px;
   text-align: center;
-  text-shadow: -1px -1px 2px rgba(22,22,22,0.10);
+  text-shadow: 1px 1px 2px rgba(222,222,222,0.10);
   color: #333;
 }
 #title a strong {
@@ -553,9 +553,9 @@ a {
 #calendar {
   text-align: center;
   background: #444 url("../images/calendar-bg.png") repeat;
-  -webkit-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
-  -moz-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
-  box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
+  -webkit-box-shadow: inset 0 0 10px rgba(5,5,5,0.80);
+  -moz-box-shadow: inset 0 0 10px rgba(5,5,5,0.80);
+  box-shadow: inset 0 0 10px rgba(5,5,5,0.80);
   border-top: 1px solid #fffff6;
   border-bottom: 1px solid #fffff6;
 }
