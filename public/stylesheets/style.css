@@ -553,6 +553,9 @@ a {
 #calendar {
   text-align: center;
   background: #444 url("../images/calendar-bg.png") repeat;
+  -webkit-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
+  -moz-box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
+  box-shadow: inset 0 0 30px 5px rgba(5,5,5,0.80);
   border-top: 1px solid #fffff6;
   border-bottom: 1px solid #fffff6;
 }
@@ -624,17 +627,26 @@ a {
 footer.container {
   text-align: center;
   margin: 3em auto 0;
-  padding: 1em;
+  padding: 1em 0;
   border-top: 1px solid #bbb;
 }
 footer.container a:link,
 footer.container a:visited {
   color: #600;
 }
-footer.container .twitter-share-button {
-  margin: 5px 20px 0;
+footer.container .twitter-share-button,
+footer.container .twitter-follow-button {
+  margin: 5px 0 0 20px;
   position: relative;
   top: 4px;
+}
+footer.container a,
+footer.container div,
+footer.container p {
+  display: inline-block;
+}
+footer.container .fb-like {
+  width: 100px;
 }
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
