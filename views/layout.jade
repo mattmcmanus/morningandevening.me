@@ -3,20 +3,20 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    meta(name="viewport", content="width=device-width")
     meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="meta-apple-mobile-web-app-status-bar-style", content="black-translucent")
+    meta(name="viewport", content="width=device-width,initial-scale=1.0")
 
     title Morning and Evening by Charles Spurgeon
 
     meta(name="description", content="Morning and Evening by Charles Spurgeon")
     meta(name="author", content="Matthew McManus")
-    
+
     link(href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic|Lora', rel='stylesheet', type='text/css')
     link(href='/stylesheets/style.css', rel='stylesheet', type='text/css')
-    
+
     script(src="/js/libs/modernizr-2.5.3.min.js")
-    
+
     // Google Analytics
     script(type="text/javascript")
       var _gaq = _gaq || [];
@@ -29,7 +29,7 @@ html(lang="en")
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    
+
   body(class = body_classes)
     #fb-root
     script
@@ -40,9 +40,9 @@ html(lang="en")
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=256072171153191";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
-  
+
     header
-      h1#title 
+      h1#title
         a(href="/") <strong>Morning <span class="amp">&</span> Evening</strong> <span class="by">by</span> Charles Spurgeon
       //nav
       //  a(href="#") Select a date
@@ -50,7 +50,7 @@ html(lang="en")
     .date
       h1
         a#picker(href="javascript:void(0)")= date
-      
+
       #calendar(style="display:none")
         // Month Mixin
         mixin month(month)
@@ -69,20 +69,20 @@ html(lang="en")
         ul#day
           - each day in days
             mixin day(day)
-          
+
     #content(role="main").container
       != body
-    
+
     footer.container
       p
-        | Made by 
+        | Made by
         a(href="http://mattmcman.us") Matt
       a(href="https://twitter.com/mattmcmanus", class="twitter twitter-follow-button", data-show-count="false") Follow @mattmcmanus
       a(href="https://twitter.com/share", class="twitter twitter-share-button", data-via="CharlesSpurgeon") Tweet
       div(class="fb-like", data-send="true", data-layout="button_count", data-width="450", data-show-faces="true")
       script
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-    
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
+
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js")
     script(src="js/plugins.js")
     script(src="js/script.js")
