@@ -629,6 +629,7 @@ footer.container {
   margin: 3em auto 0;
   padding: 1em 0;
   border-top: 1px solid #bbb;
+  overflow: hidden;
 }
 footer.container a:link,
 footer.container a:visited {
@@ -647,6 +648,7 @@ footer.container p {
 }
 footer.container .fb-like {
   width: 100px;
+  overflow: hidden;
 }
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

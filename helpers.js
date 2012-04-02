@@ -21,7 +21,6 @@ exports.helpers = {
   }
 }
 
-
 exports.dynamicHelpers = {
   body_classes: function(req, res) {
     var classes = []
