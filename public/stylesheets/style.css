@@ -636,7 +636,8 @@ footer.container a:visited {
   color: #600;
 }
 footer.container .twitter-share-button,
-footer.container .twitter-follow-button {
+footer.container .twitter-follow-button,
+footer.container .github {
   margin: 5px 0 0 20px;
   position: relative;
   top: 4px;
