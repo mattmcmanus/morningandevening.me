@@ -29,8 +29,8 @@ jsdom.env({
 function loadCurrent() {
   var day = moment().format("MMMMD")
     , hour = moment().local().format("H")
-    , time = (hour > 16)?'evening':'morning';
-    
+    , time = (hour > 17)?'evening':'morning';
+    console.log(hour)
     current = content.$("#"+day+"_"+time).html()
     
     console.log(moment().format("MM-D-HH:MM:ss")+" - Reloading current data".green)
