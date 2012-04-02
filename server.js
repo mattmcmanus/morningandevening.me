@@ -28,8 +28,8 @@ jsdom.env({
 
 function loadCurrent() {
   var day = moment().format("MMMMD")
-    , hour = moment().format("H")
-    , time = (hour > 15)?'evening':'morning';
+    , hour = moment().local().format("H")
+    , time = (hour > 16)?'evening':'morning';
     
     current = content.$("#"+day+"_"+time).html()
     
@@ -97,7 +97,9 @@ app.get('/:date', function(req, res){
   var day = moment(req.params.date).format("MMMMD")
     , current = content.$("#"+day+"_morning,").html()
     current += "<hr />" + content.$("#"+day+"_evening").html()
-    
+  
+  if (day=="undefinedNaN") throw new NotFound
+  
   res.render('index', { 
       date: moment(day).format("MMMM Do")
     , curMonth: moment(day).format("MMM")
