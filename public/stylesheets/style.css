@@ -485,11 +485,13 @@ h2 {
   font-style: italic;
   font-weight: 300;
 }
-a {
+a,
+a:link {
   -webkit-transition: all 150ms ease-in-out;
   -moz-transition: all 150ms ease-in-out;
   -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  color: #900;
 }
 #title a {
   display: block;
@@ -623,6 +625,12 @@ a {
 }
 #content .response p {
   text-align: justify;
+}
+.note {
+  text-align: center;
+}
+.note a {
+  text-decoration: none;
 }
 footer.container {
   text-align: center;

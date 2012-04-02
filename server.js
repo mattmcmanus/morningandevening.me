@@ -100,7 +100,7 @@ app.get('/:date', function(req, res){
   
   if (day=="undefinedNaN") throw new NotFound
   
-  res.render('index', { 
+  res.render('day', { 
       date: moment(day).format("MMMM Do")
     , curMonth: moment(day).format("MMM")
     , curDay: moment(day).format("D")
