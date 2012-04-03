@@ -30,7 +30,6 @@ function loadCurrent() {
   var day = moment().format("MMMMD")
     , hour = moment().local().format("H")
     , time = (hour > 17)?'evening':'morning';
-    console.log(hour)
     current = content.$("#"+day+"_"+time).html()
     
     console.log(moment().format("MM-D-HH:MM:ss")+" - Reloading current data".green)
@@ -93,12 +92,20 @@ app.get('/', function(req, res){
   )  
 });
 
-app.get('/:date', function(req, res){
+app.get('/:date/:time?', function(req, res){
   var day = moment(req.params.date).format("MMMMD")
-    , current = content.$("#"+day+"_morning,").html()
-    current += "<hr />" + content.$("#"+day+"_evening").html()
+    , current;
   
-  if (day=="undefinedNaN") throw new NotFound
+  if ( day == "undefinedNaN" ) throw new NotFound
+  
+  if (req.params.time) {
+    current = content.$("#"+day+"_"+req.params.time).html()
+  } else {
+    current = content.$("#"+day+"_morning,").html()
+    current += "<hr />" + content.$("#"+day+"_evening").html()
+  }
+
+  
   
   res.render('day', { 
       date: moment(day).format("MMMM Do")
