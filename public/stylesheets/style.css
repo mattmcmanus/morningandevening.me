@@ -491,7 +491,14 @@ a:link {
   -moz-transition: all 150ms ease-in-out;
   -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  text-decoration: none;
   color: #900;
+}
+a:visited {
+  color: #600;
+}
+a:hover {
+  text-decoration: underline;
 }
 #title a {
   display: block;
@@ -630,7 +637,8 @@ a:link {
   text-align: center;
 }
 .note a {
-  text-decoration: none;
+  display: inline-block;
+  padding: 4px 8px;
 }
 footer.container {
   text-align: center;
@@ -677,7 +685,7 @@ footer.container .fb-like {
   }
   #content p {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 26px;
   }
 }
 /* ==|== non-semantic helper classes ========================================

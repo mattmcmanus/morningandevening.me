@@ -1,24 +1,44 @@
 {
-  "author": "Matt McManus <matt@ablegray.com> (http://mattmcman.us)",
   "name": "morningandevening.me",
-  "description": "Spurgeons Morning and Evening",
-  "version": "0.1.0",
-  "homepage": "http://morningandevening.me",
+  "description": "A daily devotional using Spurgeons Morning and Evening",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mattmcmanus/morningandevening.me",
+  "author": {
+    "name": "Matt McManus",
+    "email": "mattmcmanus@gmail.com",
+    "url": "http://mattmcmanu.us"
+  },
   "repository": {
     "type": "git",
-    "url": "root@ablegray.com:/var/git/morningandevening.me.git"
+    "url": "git://github.com/mattmcmanus/morningandevening.me"
   },
+  "bugs": {
+    "url": "https://github.com/mattmcmanus/morningandevening.me/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mattmcmanus/morningandevening.me/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/me",
   "engines": {
-    "node": "0.6"
+    "node": "~0.6.14"
+  },
+  "scripts": {
+    "test": "grunt test"
   },
   "dependencies": {
-    "express"           : "2.x"
-  , "stylus"            : ">= 0.0.1"
-  , "jade"              : ">= 0.0.1"
-  , "colors"            : "*"
-  , "moment"            : "*"
-  , "jsdom"             : "0.2.x"
-  , "connect-gzip"      : ">= 0.0.1"
+    "express"           : "2.x",
+    "stylus"            : ">= 0.0.1",
+    "jade"              : ">= 0.0.1",
+    "colors"            : "*",
+    "moment"            : "*",
+    "jsdom"             : "0.2.x",
+    "connect-gzip"      : ">= 0.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt": "~0.3.7"
+  },
+  "keywords": []
 }

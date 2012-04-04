@@ -1,5 +1,7 @@
-!= current
+!= entry
 
 p.note
   em 
-    a(href="/"+curMonth+"-"+curDay) Today's full entry
+    a(href="/" + prev.month + "-" + prev.day + "/" + prev.time) Previous Entry
+    |  | 
+    a(href="/" + next.month + "-" + next.day + "/" + next.time) Next Entry

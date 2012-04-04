@@ -237,7 +237,12 @@ h1, h2
 
 a, a:link
   transition all 150ms ease-in-out
+  text-decoration none
   color #900
+a:visited
+  color #600
+a:hover
+  text-decoration underline
 
 #title
   a
@@ -351,7 +356,8 @@ a, a:link
 .note
   text-align center
   a
-    text-decoration none
+    display inline-block
+    padding 4px 8px
     
 
 footer.container
@@ -391,7 +397,7 @@ footer.container
         margin 0 0 1em
     p
       font-size 18px
-      line-height 24px
+      line-height 26px
 
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
