@@ -554,10 +554,23 @@ a:hover {
   top: -8px;
   color: #666;
 }
+#picker span {
+  display: block;
+  font-size: 16px;
+  color: #600;
+  line-height: 0px;
+  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
 #picker:hover {
   opacity: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   color: #222;
+  cursor: pointer;
+}
+#picker:hover span {
+  opacity: 0.7;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 }
 #calendar {
   text-align: center;
