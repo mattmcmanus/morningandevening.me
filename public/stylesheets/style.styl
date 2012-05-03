@@ -254,7 +254,6 @@ a:hover
     line-height 23px
     padding 10px 0 2px
     text-align center
-    text-shadow 1px 1px 2px rgba(222,222,222,.1)
     color #333
     strong
       font-size 36px
@@ -318,7 +317,7 @@ a:hover
   ul#month
     margin 18px
     position relative
-    padding-bottom 50px
+    padding 0 0 43px
 
     li
       display inline-block
@@ -331,20 +330,22 @@ a:hover
         text-decoration none
         text-shadow 0 3px 2px rgba(10,10,10,.75)
         font-size 22px
+        line-height 16px
         &:hover
           opacity 1
       ul.days
         display none
         position absolute
         bottom -10px
-        left: 0;
-        text-align: center;
-        width: 100%;
-        padding: 0;
+        left 0
+        text-align center
+        width 100%
+        padding 0
         a
           font-size 18px
           opacity .65
           font-weight 400
+          line-height 16px
           &.current
             opacity 1
             font-weight 700
@@ -354,6 +355,12 @@ a:hover
           font-weight 700
         ul
           display block
+#calendar:after
+  content "."
+  display block
+  height 0
+  clear both
+  visibility hidden
       
 #content  
   h2
@@ -411,13 +418,37 @@ footer.container
    Modify as content requires.
    ========================================================================== */
 
+@media (max-width: 950px)
+  #calendar
+    ul#month
+      padding 0 0 70px
+
 // UP TO LANDSCAPE PHONE
-@media (max-width: 480px)
+@media (max-width: 500px)
   .container
     width 100%
+  hr
+    margin 13px 0
+  #title
+    a
+      strong
+        font-size 24px
+      .amp
+        font-size 32px
+  #picker
+    font-size 30px
+    height 43px
+
+  #calendar
+    ul#month
+      padding 0 0 90px
+
   #content
     article
       padding 0 18px
+      h2
+        line-height 28px
+        margin-top 8px
       blockquote
         padding 1em 0 2em
         margin 0 0 1em

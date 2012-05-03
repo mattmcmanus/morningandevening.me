@@ -509,7 +509,6 @@ a:hover {
   line-height: 23px;
   padding: 10px 0 2px;
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(222,222,222,0.1);
   color: #333;
 }
 #title a strong {
@@ -569,8 +568,8 @@ a:hover {
   cursor: pointer;
 }
 #picker:hover span {
-  opacity: 0.7;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.9;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
 }
 #calendar {
   text-align: center;
@@ -584,7 +583,7 @@ a:hover {
 #calendar ul#month {
   margin: 18px;
   position: relative;
-  padding-bottom: 50px;
+  padding: 0 0 43px;
 }
 #calendar ul#month li {
   display: inline-block;
@@ -599,6 +598,7 @@ a:hover {
   text-decoration: none;
   text-shadow: 0 3px 2px rgba(10,10,10,0.75);
   font-size: 22px;
+  line-height: 16px;
 }
 #calendar ul#month li a:hover {
   opacity: 1;
@@ -618,6 +618,7 @@ a:hover {
   opacity: 0.65;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
   font-weight: 400;
+  line-height: 16px;
 }
 #calendar ul#month li ul.days a.current {
   opacity: 1;
@@ -631,6 +632,13 @@ a:hover {
 }
 #calendar ul#month li.current ul {
   display: block;
+}
+#calendar:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 #content h2 {
   color: #666;
@@ -699,12 +707,37 @@ footer.container .fb-like {
    This example overrides the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
-@media (max-width: 480px) {
+@media (max-width: 950px) {
+  #calendar ul#month {
+    padding: 0 0 70px;
+  }
+}
+@media (max-width: 500px) {
   .container {
     width: 100%;
   }
+  hr {
+    margin: 13px 0;
+  }
+  #title a strong {
+    font-size: 24px;
+  }
+  #title a .amp {
+    font-size: 32px;
+  }
+  #picker {
+    font-size: 30px;
+    height: 43px;
+  }
+  #calendar ul#month {
+    padding: 0 0 90px;
+  }
   #content article {
     padding: 0 18px;
+  }
+  #content article h2 {
+    line-height: 28px;
+    margin-top: 8px;
   }
   #content article blockquote {
     padding: 1em 0 2em;
