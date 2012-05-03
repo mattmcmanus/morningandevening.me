@@ -11,13 +11,19 @@ module.exports = function(grunt) {
       aftermin: ['<config:min.dist.dest']
     },
     watch: {
-      files: '<config:lint.files>',
-      tasks: 'default'
+      main: {
+        files: '<config:lint.files>',
+        tasks: 'default'
+      },
+      javascript: {
+        files: '<config:concat:dist:src>',
+        tasks: 'prep'
+      }
     },
     jshint: {
       options: {
         curly: true,
-        eqeqeq: true,
+        //eqeqeq: true,
         immed: true,
         latedef: true,
         newcap: true,
@@ -26,7 +32,8 @@ module.exports = function(grunt) {
         undef: true,
         boss: true,
         eqnull: true,
-        node: true
+        node: true,
+        es5: true
       },
       globals: {
         exports: true

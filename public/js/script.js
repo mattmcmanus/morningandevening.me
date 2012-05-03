@@ -11,21 +11,9 @@ jQuery(document).ready(function($) {
   // Click a calendar month
   $('#month a').click(function(e){
     // Remove any current classes
-    $('#calendar a').removeClass('current')
+    $('#calendar li').removeClass('current')
     // Add the correct current class
-    $(this).addClass('current')
+    $(this).parent().addClass('current')
     var month = $(this).attr('id')
-    
-    $("#day a").each(function(day){
-      // Hide or show day appropriately
-      if ($(this).hasClass("no"+month))
-        $(this).hide(75)
-      else
-        $(this).show(75)
-      // Cjamge tje IR:
-      var day = $(this).attr('href').substr(4)
-      $(this).attr('href','/'+month+day)
-      
-    })
   })
 });

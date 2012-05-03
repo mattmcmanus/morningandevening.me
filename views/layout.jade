@@ -53,21 +53,19 @@ html(lang="en")
         #calendar(style="display:none")
           // Month Mixin
           mixin month(month)
-            li
-              a(id=month, class=month_classes(month, current.month), href="javascript:void(0)")= month
+            li(class=month_classes(month, current.month))
+              a(id=month, href="javascript:void(0)")= month
+              ul.days
+                - each day in thisMonth(month, days)
+                  if month == current.month
+                    - var classes = day_classes(day, current.day)
+                  li
+                    a(id="d"+day, class=classes, href="/"+month+"-"+day)= day
+
           // Month List
           ul#month
             - each month in months
               mixin month(month)
-
-          mixin day(day)
-            if ((current.month == 'Feb' && (day == '31' || day == '30' || day == '29' )) || (day == '31' && (current.month == 'Feb' || current.month == 'Apr' || current.month == 'Jun' || current.month == 'Sep' || current.month == 'Nov') ))
-              -var style = "display:none"
-            li
-              a(id="d"+day, style=style, class= day_classes(day, current.day), href="/"+current.month+"-"+day)= day
-          ul#day
-            - each day in days
-              mixin day(day)
 
     #content(role="main").container
       != body

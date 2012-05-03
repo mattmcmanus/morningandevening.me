@@ -11,17 +11,20 @@ exports.helpers = {
   
   day_classes: function(day, curDay){
     var classes = [];
-    if (day === curDay) {
+    if (day == curDay) {
       classes.push('current');
     }
-    if (day === '30' || day === '29') {
-      classes.push('noFeb');
-    }
-    
-    if (day === '31'){
-      classes.push('noFeb noApr noJun noSep noNov');
-    }
     return classes.join(' ');
+  },
+
+  thisMonth: function(month, days) {
+    if (month == 'Feb') {
+      return days.slice(0, 27);
+    } else if ( month == 'Apr' || month == 'Jun' || month == 'Sep' || month == 'Nov' ) {
+      return days.slice(0, 30);
+    } else {
+      return days;
+    }
   }
 };
 

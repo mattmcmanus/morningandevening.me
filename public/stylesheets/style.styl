@@ -161,7 +161,7 @@ button, input { line-height: normal; }
 /*
  * 1. Display hand cursor for clickable form elements
  * 2. Allow styling of clickable form elements in iOS
- * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+ * 3. Correct inner spacing displayed oddly in IE7 (doesnt effect IE6)
  */
 
 button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
@@ -304,8 +304,12 @@ a:hover
   box-shadow inset 0 0 10px rgba(5,5,5,.8)
   border-top 1px solid #fffff6
   border-bottom 1px solid #fffff6
-  ul
+  
+  ul#month
     margin 18px
+    position relative
+    padding-bottom 50px
+
     li
       display inline-block
       list-style none
@@ -316,19 +320,31 @@ a:hover
         opacity .65
         text-decoration none
         text-shadow 0 3px 2px rgba(10,10,10,.75)
-        &.current
-          opacity 1
-          font-weight 700
+        font-size 22px
         &:hover
           opacity 1
-    &#month 
-      margin-bottom 8px
-      a
-        font-size 22px
-    &#day
-      margin-top 8px
-      a
-        font-size 18px
+      ul.days
+        display none
+        position absolute
+        bottom -10px
+        left: 0;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        a
+          font-size 18px
+          opacity .65
+          font-weight 400
+          &.current
+            opacity 1
+            font-weight 700
+      &.current
+        a
+          opacity 1
+          font-weight 700
+        ul
+          display block
+      
 #content  
   h2
     color #666
