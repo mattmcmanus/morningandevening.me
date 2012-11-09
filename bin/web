@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ROOT=$(dirname $(dirname $0))
+PATH="node_modules/.bin:$PATH"
+
+if [ "${NODE_ENV}" == "development" ]; then
+  exec nodemon server.js
+else
+  exec node server.js
+fi
