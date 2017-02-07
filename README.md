@@ -1,5 +1,7 @@
 # morningandevening.me
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mattmcmanus/morningandevening.me.svg)](https://greenkeeper.io/)
+
 A daily devotional using Spurgeons Morning and Evening. You can view the site at http://morningandevening.me
 
 Feel free to fork, add features and pull request and I'll add it to the site.
