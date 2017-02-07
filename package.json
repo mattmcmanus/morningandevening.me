@@ -29,16 +29,16 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "express"           : "2.x",
+    "express"           : "^4.14.1",
     "stylus"            : ">= 0.0.1",
     "jade"              : ">= 0.0.1",
     "colors"            : "*",
     "moment"            : "*",
-    "jsdom"             : "0.2.x",
+    "jsdom"             : "~9.10.0",
     "connect-gzip"      : ">= 0.0.1"
   },
   "devDependencies": {
-    "grunt": "~0.3.7"
+    "grunt": "~1.0.1"
   },
   "keywords": []
 }
